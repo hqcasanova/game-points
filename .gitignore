@@ -3,12 +3,4 @@
 .LSOverride
 logs
 *.log
-npm-debug.log*
-node_modules
-build/
-.project
-.settings
-*~
-*.diff
-*.patch
-*.css
+*.old
