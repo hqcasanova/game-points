@@ -1,0 +1,55 @@
+{
+  "name": "game-points",
+  "version": "0.0.1",
+  "description": "Simple browser-based game points system that calculates the total points awarded to a player for a number of items they have collected in a game.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hqcasanova/game-points.git"
+  },
+  "keywords": [
+    "game",
+    "points",
+    "items",
+    "marionette",
+    "webpack",
+    "javascript",
+    "mobile-first",
+    "ie10+",
+    "single-page-app",
+    "kahoot"
+  ],
+  "author": "hqcasanova",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hqcasanova/game-points/issues"
+  },
+  "homepage": "https://hqcasanova.github.io/game-points/",
+  "dependencies": {
+    "backbone": "^1.3.3",
+    "backbone.marionette": "^3.2.0",
+    "jquery": "^3.1.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "copy-webpack-plugin": "^4.0.1",
+    "css-loader": "^0.27.1",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "less": "^2.7.2",
+    "less-loader": "^3.0.0",
+    "postcss-loader": "^1.3.3",
+    "style-loader": "^0.13.2",
+    "underscore-template-loader": "^0.7.3",
+    "url-loader": "^0.5.8",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
+    "webpack-plugin-critical": "^1.0.0"
+  }
+}

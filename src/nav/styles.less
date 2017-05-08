@@ -1,0 +1,53 @@
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+
+    .score {
+        display: inline-block;
+        text-align: center;
+        margin: 0 .5rem;
+        
+        @media @ipad {
+            font-size: 1.2rem;
+
+            &:first-of-type {
+                display: block;
+                text-align: left;
+
+                .score-name {
+                    display: inline-block;
+                }
+
+                .score-count {
+                    margin-left: .8rem;
+                }
+            }
+        }
+
+        .score-name {
+            display: block;
+            margin-bottom: .5rem;
+            color: @text-lightest;
+            cursor: pointer;
+
+            @media @ipad {
+                border: none;
+            }
+        }
+    }
+
+    .new-game {
+        font-weight: normal;
+        text-transform: none;
+    }
+
+    @media @ipad {
+        display: block;
+
+        .game-action {
+            overflow: hidden;
+            display: inline-block;
+            margin-left: .8rem;
+        }
+    }
+}

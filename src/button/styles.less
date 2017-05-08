@@ -1,0 +1,32 @@
+.item-button {
+    position: relative;
+    width: 100%;
+    height: 40vw;
+    font-size: inherit;
+    box-shadow: inset 0 -.8rem rgba(0,0,0,.25);
+
+    .button-badge {
+        position: absolute;
+        top: -1em;
+        right: -1em;
+        display: block;
+        width: 2em;
+        height: 2em;
+        line-height: 2em;
+        font-size: .2em;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 50%;
+        border: .25rem solid @bg-lighter;
+        color: @text-lightest;
+        transition: opacity 350ms ease-out;
+
+        &.none {
+            opacity: 0;
+        }
+
+        @media @ipad {
+            display: none;
+        }
+    }
+}
