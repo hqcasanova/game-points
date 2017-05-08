@@ -1,0 +1,26 @@
+[
+    {
+        "name": "A",
+        "points": 50,
+        "bonusPoints": 200,
+        "bonusUnits": 3,
+        "quantity": 6
+    },
+    {
+        "name": "B",
+        "points": 30,
+        "bonusPoints": 90,
+        "bonusUnits": 2,
+        "quantity": 7
+    },
+    {
+        "name": "C",
+        "points": 20,
+        "quantity": 10
+    },
+    {
+        "name": "D",
+        "points": 15,
+        "quantity": 6
+    }
+]

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"> 
+    <title>Kahoot Points | Simple browser-based game points system</title>
+    <style type="text/css">
+        #game-nav,body{background:#333}a,body,button,div,footer,h1,h2,h3,header,html,img,li,main,nav,p,section,span,table,tbody,td,th,thead,tr,ul{margin:0;padding:0;border:0;outline:0;font:inherit;vertical-align:baseline;text-decoration:none}html{height:100%}body{min-height:100%;line-height:1;font-family:"Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;text-transform:uppercase;color:#fafafa}ul{list-style:none}table{border-collapse:collapse}h1{font-size:3.5rem}h2{font-size:2.5rem}h3{font-size:1.5rem}footer,h1,h2{text-transform:none}p{line-height:1.5rem}button{padding:0 1rem .25rem;min-width:5.625rem;height:2.5rem;font-size:1.25rem;font-weight:700;vertical-align:bottom;color:#fafafa;background-color:#f5a23d;border:0;border-radius:.25rem;box-shadow:inset 0 -.25rem rgba(0,0,0,.25);cursor:pointer}button:active{box-shadow:inset 0 -.1rem rgba(0,0,0,.25);-webkit-transform:translateY(.1rem);transform:translateY(.1rem)}a{border-bottom:1px solid #fafafa}#footer,#game-nav,#identity,#item-controls{box-sizing:border-box}#game-nav,#identity{z-index:10;position:fixed;left:0;width:100%}#identity{top:0;padding:.5rem .5rem .25rem;text-align:center;background:#864cbf}#identity h1,#identity h2{display:inline-block;vertical-align:middle}#identity sup{font-family:courier}#identity svg{height:1em;fill:#fafafa}#game-nav{top:4.7rem;padding:.8rem .5rem}#item-controls{padding:9.5rem .5rem 1rem;color:#222;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVQYV2NkIAIYGRkZMxJSB1J07ty5s3gVwhSBDMOpEFkRToXoirAqxKYIQyEuRSgK8SmCKySkCKyQGEUghQD14STUVsxSOgAAAABJRU5ErkJggg==) #fff}#item-controls h3{margin:.5rem 0}#score-table{width:100%}#score-table caption,#score-table td,#score-table th{padding:.57rem}#score-table tbody,#score-table thead{display:block}@media only screen and (min-width:1024px){#identity{width:75%}#game-nav{top:inherit;bottom:3.4rem;left:75%;width:25%}#item-controls{overflow-y:auto;overflow-x:hidden;position:absolute;top:4.75rem;bottom:3.4rem;padding-top:.5rem;width:75%}#score-table tbody,#score-table thead{position:absolute;left:75%;width:25%}}#score-table tr:not(.spinner){display:block;width:100%;text-align:center}#score-table tr:not(.spinner) td,#score-table tr:not(.spinner) th{box-sizing:border-box;display:inline-block;width:30%}#footer{padding:.5rem;width:100%;font-size:.8rem;line-height:1.2rem;background:#fafafa;display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}#footer li{display:inline-block}#footer li.hq{text-align:right}#footer li.github,.items,.nav-links .score{text-align:center}#footer li em{display:block}#footer img{display:none;width:auto;height:1.7rem}@media only screen and (min-width:1024px){#score-table{width:25%;float:right}#score-table tbody{overflow-y:auto;overflow-x:hidden;top:4.75rem;bottom:9.7rem}#footer img{display:inline}#footer{position:absolute;bottom:0;left:0}}#footer .footer-link{display:inline-block;color:#222;text-decoration:underline;border:none}#footer .footer-link.mit-link{padding-left:.4rem}#footer .footer-link.hq-link{padding-right:.4rem}.spinner{display:none;position:absolute;left:50%;top:50%;z-index:10;margin-top:-1.5rem;margin-left:-1.5rem;width:3rem;height:3rem;border-radius:50%;border:2px solid #864cbf;border-top:2px transparent solid;border-bottom:2px transparent solid;border-right:2px transparent solid;opacity:.4;-webkit-animation:rotate 1s infinite forwards;animation:rotate 1s infinite forwards}.loading .spinner{display:block}@-webkit-keyframes rotate{50%{opacity:1;-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes rotate{50%{opacity:1;-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.item-button{position:relative;width:100%;height:40vw;font-size:inherit;box-shadow:inset 0 -.8rem rgba(0,0,0,.25)}.item-button .button-badge{position:absolute;top:-1em;right:-1em;display:block;width:2em;height:2em;line-height:2em;font-size:.2em;font-weight:700;text-align:center;border-radius:50%;border:.25rem solid #fafafa;color:#fafafa;transition:opacity 350ms ease-out}.item-button .button-badge.none{opacity:0}.loading .item{display:none}.items{overflow:hidden;min-height:10rem}.items.loading{position:relative}@media only screen and (min-width:1024px){.item-button .button-badge{display:none}.items.loading{position:static}}.item-list li:not(.spinner){display:inline-block;width:40%;max-width:122px;margin:.9rem;font-size:5rem}.item-list li:not(.spinner) *{max-height:128px}.item-row{font-size:2rem}.item-rows .spinner{border-left-color:#f5a23d}.nav-links{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}.nav-links .score{display:inline-block;margin:0 .5rem}@media only screen and (min-width:1024px){.nav-links .score{font-size:1.2rem}.nav-links .score:first-of-type{display:block;text-align:left}.nav-links .score:first-of-type .score-name{display:inline-block}.nav-links .score:first-of-type .score-count{margin-left:.8rem}.nav-links .score .score-name{border:none}}.nav-links .score .score-name{display:block;margin-bottom:.5rem;color:#fafafa;cursor:pointer}.nav-links .new-game{font-weight:400;text-transform:none}@media only screen and (min-width:1024px){.nav-links{display:block}.nav-links .game-action{overflow:hidden;display:inline-block;margin-left:.8rem}}
+    </style>
+    <link rel="shortcut icon" href="favicon.png">
+    <meta name="description" content="Simple browser based game points system that calculates the total points awarded to a player for a number of items they have collected in a game.">
+    <meta property="og:image" content="assets/kahoot.png">
+    <meta property="og:description" content="Simple browser based game points system that calculates the total points awarded to a player for a number of items they have collected in a game.">
+</head>
+<body>
+    <noscript>
+        <h1>Kahoot! Points needs JavaScript to work</h1>
+        <p>
+            To use Kahoot! Points, you need to have JavaScript enabled in your browser. To enable JavaScript, please do the following:
+        </p>
+        <ul>
+            <li><a href="http://enable-javascript.com/">Follow these instructions</a>.</li>
+            <li>Make sure you have the <a href="https://www.mozilla.org/en-US/firefox/new/">latest browser</a>.</li>
+            <li>Turn off or disable the NoScript extension, if you have it.</li>
+            <li>Contact your IT administrator to allow access to Kahoot! in your security preferences.</li>
+        </ul>
+        <p>If you continue to have problems, please let us know by <a href="http://kahoot.uservoice.com/">contacting Kahoot! support</a>.</p>
+    </noscript>
+    <script>!function(e){"use strict";var t=function(t,n,r){function o(e){return i.body?e():void setTimeout(function(){o(e)})}function a(){d.addEventListener&&d.removeEventListener("load",a),d.media=r||"all"}var l,i=e.document,d=i.createElement("link");if(n)l=n;else{var s=(i.body||i.getElementsByTagName("head")[0]).childNodes;l=s[s.length-1]}var u=i.styleSheets;d.rel="stylesheet",d.href=t,d.media="only x",o(function(){l.parentNode.insertBefore(d,n?l:l.nextSibling)});var f=function(e){for(var t=d.href,n=u.length;n--;)if(u[n].href===t)return e();setTimeout(function(){f(e)})};return d.addEventListener&&d.addEventListener("load",a),d.onloadcssdefined=f,f(a),d};"undefined"!=typeof exports?exports.loadCSS=t:e.loadCSS=t}("undefined"!=typeof global?global:this),function(e){if(e.loadCSS){var t=loadCSS.relpreload={};if(t.support=function(){try{return e.document.createElement("link").relList.supports("preload")}catch(e){return!1}},t.poly=function(){for(var t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")&&(e.loadCSS(r.href,r,r.getAttribute("media")),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&e.addEventListener("load",function(){t.poly(),e.clearInterval(n)}),e.attachEvent&&e.attachEvent("onload",function(){e.clearInterval(n)})}}}(this);</script>
+  
+    <!-- ABOVE THE FOLD -->
+    <header role="banner" id="identity">
+        <h1><svg xmlns="http://www.w3.org/2000/svg" viewbox="188 -43 440 150">
+            <title>Kahoot!</title>
+            <path class="st0" d="M414.8 9.5c-18.7.3-34.8 16.1-36 35.1-1.1 19.1 14.1 36.1 33.9 38.1 19.9 2 36-13.8 36-35.1 0-21.4-15.2-38.4-33.9-38.1zM428.2 49c-.8 9.9-7 15.3-11.1 15.7-10.3 1.2-19.1-8.1-18.5-20 .6-11.9 5.4-19.3 15.1-19.5 9.7-.2 15.6 10.9 14.5 23.8zM488.3 11.4c-18.7-.3-33.9 16.7-33.9 38.1s16.1 37.1 36 35.1 35.1-19 33.9-38.1c-1.1-19-17.2-34.7-36-35.1zM486 66.7c-4.1-.5-10.2-5.9-11.1-15.7-1.1-12.9 4.8-24 14.5-23.8s14.5 7.6 15.1 19.5c.6 11.8-8.2 21.2-18.5 20zM270.5-6.4l-20.1-7.7-39.2 37.4v-46.7L188-17.5V92.2l23.2.8-.2-38.4 14.3-13.8L240.4 93h20.5L242 24.9M334.2 6.2l-.4-49.2-19.8 5.2 3.2 121.6 19.5.7-1.1-62.8c4.3-1.9 18.4-5.8 18.9 9.7l1.9 22.1 1.3 31.1h20.4l-7.7-53.7C367.3-.5 355.8-.6 334.2 6.2zM603.2 85.2l-5.7 13.4 12.2 8.4 12-7.1-5.1-14.7M551.4-23.4l-15.5-6.4V2.3l-17.3-.6 3.3 22.8h14l1 54.3s-2.2 19.5 27.6 15.1c0 0 9.3-2.8 9-9.3V63.2s-6.3 3.7-13.1 3.7-6.9-3.3-6.9-3.3l-1.8-42 21.7-1.2V6.5L551.1 5l.3-28.4zM628-23.2L587-31l25.2 108.5"/><path class="st0" d="M265.6 6.9l5.4 14.2c13.5-8.1 21.1 0 21.1 0l-.1 9.1c-40.2 7.1-30 44.3-30 44.3 4.1 14.6 17.3 14.1 17.3 14.1h30.1l.6-67.7c-4.7-31.5-44.4-14-44.4-14zM292 75.6s-14.6 3.5-16.2-10.7c0 0 .3-22 16.7-19.6l-.5 30.3z"/>
+        </svg></h1>
+        <h2>Points<sup>&alpha;</sup></h2>
+    </header>
+    <nav role="navigation" id="game-nav">
+        <ul class="nav-links">
+            <li class="score">
+                <a href="#score-table" title="Jump to score table" class="score-name">
+                    Bonuses
+                </a>
+                <b class="score-bonus score-count">0</b>
+            </li>
+            <li class="score">
+                <a href="#score-table" title="Jump to score table" class="score-name">
+                    Total
+                </a>
+                <b class="score-total score-count">0</b>
+            </li>
+            <li class="game-action">
+                <button class="new-game button" title="Resets all scores and counts">New game</button>
+            </li>
+        </ul>
+    </nav>
+    <main role="main">
+        <section id="item-controls">
+            <h3>Items</h3>
+            <ul class="item-list items loading"><li class="spinner"></li></ul>
+        </section>
+
+        <!-- BELOW THE FOLD -->
+        <table role="grid" id="score-table">
+            <caption><h3>Player items</h3></caption>
+            <thead class="score-columns">
+                <tr role="row">
+                    <th scope="col">Item</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody class="item-rows items loading"><tr class="spinner"></tr></tbody>
+        </table>
+    </main>
+    <footer role="contentinfo">
+        <ul id="footer">
+            <li class="mit"><img alt="MIT" src="assets/mit.png" width="120" height="64"><a rel="external" class="mit-link footer-link" title="The MIT License" href="http://opensource.org/licenses/MIT">Released under <em>MIT License</em></a></li><!--
+         --><li class="github"><a rel="external" class="github-link footer-link" title="GitHub" href="https://github.com/hqcasanova/game-points">Source on <em>GitHub</em></a></li><!--
+         --><li class="hq"><a rel="external" class="hq-link footer-link" title="HQCasanova.com" href="http://www.hqcasanova.com">Created by <em>HQCasanova</em></a><img alt="HQCasanova" src="assets/hqcasanova.png" width="64" height="64"></li>
+        </ul> 
+    </footer>
+       
+    <!-- APPLICATION -->
+    <script src="bundle.js"></script>
+</body>
+</html>
